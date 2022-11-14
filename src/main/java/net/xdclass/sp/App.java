@@ -11,19 +11,18 @@ public class App {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 //        testScope(context);
-//        testInject(context);
+        testInject(context);
 //        testInjectCollection(context);
-        testInjecta(context);
+//        testExtend(context);
 
     }
 
 
-    private static void testInjecta(ApplicationContext context) {
-        Video video = (Video)context.getBean("video");
-        System.out.println(video.getTitle());
-
+    private static void testExtend(ApplicationContext context) {
         Video2 video2 = (Video2)context.getBean("video2");
         System.out.println(video2.getSummary());
+        System.out.println(video2.getTitle());
+        System.out.println(video2.getId());
 
     }
 

@@ -12,13 +12,13 @@
 
 
     <bean id="video2" class="net.xdclass.sp.domain.Video2" scope="singleton" parent="video">
-        <property name="summary" value="总结以下"/>
+        <property name="summary" value="这个是summary"/>
     </bean>
 
 
 
-
-    <bean id="videoOrder" class="net.xdclass.sp.domain.VideoOrder">
+    <!--设置两个bean的关系，video要先于videoOrder实例化-->
+    <bean id="videoOrder" class="net.xdclass.sp.domain.VideoOrder" depends-on="video">
         <property name="id" value="8"/>
         <property name="outTradeNo" value="234 2343232423ajfkasjfk"/>
         <property name="video" ref="video"/><!--DI依赖注入，把Video注入进来了-->

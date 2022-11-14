@@ -17,7 +17,7 @@ public class Video2 {
 
     }
     public Video2(String title){
-        System.out.println("video 带参构造函数被调用");
+//        System.out.println("video 带参构造函数被调用");
         this.title=title;
     }
 
@@ -26,7 +26,7 @@ public class Video2 {
     }
 
     public void setId(int id) {
-        System.out.println("Video setId方法被调用");
+//        System.out.println("Video setId方法被调用");
 
         this.id = id;
     }
@@ -36,7 +36,7 @@ public class Video2 {
     }
 
     public void setTitle(String title) {
-        System.out.println("Video setTitle方法被调用");
+//        System.out.println("Video setTitle方法被调用");
         this.title = title;
     }
 }

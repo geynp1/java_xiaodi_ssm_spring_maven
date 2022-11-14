@@ -8,7 +8,7 @@ public class VideoOrder {
     private Video video;
 
     public VideoOrder() {
-        System.out.println("VideoOrder 空构造函数 被调用");
+//        System.out.println("VideoOrder 空构造函数 被调用");
     }
 
     public int getId() {
@@ -32,7 +32,7 @@ public class VideoOrder {
     }
 
     public void setVideo(Video video) {
-        System.out.println("VideoOrder setVideo方法被调用 ");
+//        System.out.println("VideoOrder setVideo方法被调用 ");
         this.video = video;
     }
 }
