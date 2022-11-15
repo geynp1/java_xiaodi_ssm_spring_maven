@@ -7,8 +7,11 @@ public class VideoOrder {
     private String outTradeNo;
     private Video video;
 
+    public VideoOrder(Video video) {
+       this.video=video;
+    }
     public VideoOrder() {
-//        System.out.println("VideoOrder 空构造函数 被调用");
+        System.out.println("VideoOrder 空构造函数 被调用");
     }
 
     public int getId() {

@@ -1,15 +1,26 @@
 package net.xdclass.sp.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 import java.util.Map;
 
 public class Video {
     private int id;
+
     private String title;
 
 
-    public Video(){
+    public void init(){
+        System.out.println("video类init方法被调用");
+    }
 
+
+    public void destroy(){
+        System.out.println("video类destroy方法被调用");
+    }
+    public Video(){
+        System.out.println("video 空构造函数被调用");
     }
     public Video(String title){
 //        System.out.println("video 带参构造函数被调用");
