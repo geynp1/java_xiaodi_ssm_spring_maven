@@ -1,60 +1,29 @@
 package net.xdclass.sp;
 
+
 import net.xdclass.sp.domain.Video;
-import net.xdclass.sp.domain.Video2;
-import net.xdclass.sp.domain.VideoOrder;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import net.xdclass.sp.service.VideoService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        testScope(context);
-        testInject(context);
-//        testInjectCollection(context);
-//        testExtend(context);
-//        testInitDestroy(context);
-//        ((ClassPathXmlApplicationContext) context).registerShutdownHook();//video的destroy
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 
-    }
+        //扫描指定的包,包括子包
+        context.scan("net.xdclass");
 
+        //里面完成初始化操作，核心方法
+        context.refresh();
 
-    private static void testInitDestroy(ApplicationContext context) {
-        Video video = (Video)context.getBean("video");
+        VideoService videoService = (VideoService)context.getBean("videoService");
+        videoService.findById(1);
 
-        System.out.println(video.getTitle());
-
-
-    }
-
-
-
-    private static void testExtend(ApplicationContext context) {
-        Video2 video2 = (Video2)context.getBean("video2");
-        System.out.println(video2.getSummary());
-        System.out.println(video2.getTitle());
-        System.out.println(video2.getId());
-
-    }
-
-    private static void testInjectCollection(ApplicationContext context) {
         Video video = (Video) context.getBean("video");
-//        System.out.println(video.getChapterList().toString());
-//        System.out.println(video.getVideoMap().values().toString());
-    }
-    private static void testInject(ApplicationContext context) {
-//        Video video = (Video)context.getBean("video");
-//        System.out.println(video.getTitle());
+        video.init();
 
-        VideoOrder videoOrder = (VideoOrder) context.getBean("videoOrder");
-        System.out.println(videoOrder.getVideo().getTitle());
     }
 
-    private static void testScope(ApplicationContext context){
-        Video video1 = (Video)context.getBean("video");
-        Video video2 = (Video)context.getBean("video");
-        //靠匹配内存地址， == 是匹配内存地址
-        System.out.println(video1==video2);
-    }
+
+
 }

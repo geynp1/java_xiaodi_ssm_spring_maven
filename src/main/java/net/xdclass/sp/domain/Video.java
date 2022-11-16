@@ -1,10 +1,11 @@
 package net.xdclass.sp.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
-
+@Component
 public class Video {
     private int id;
 
